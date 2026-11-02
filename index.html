@@ -111,9 +111,10 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-html,body{margin:0;height:100%;background:#0d0906;overflow:hidden;user-select:none;-webkit-user-select:none}
+html,body{margin:0;width:100%;height:100%;background:#0d0906;overflow:hidden;user-select:none;-webkit-user-select:none}
 body.idle{cursor:none}
 #stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:0 0}
+body{position:fixed;inset:0}
 .slide{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;opacity:0;visibility:hidden;transition:opacity .5s ease,transform .5s ease,visibility 0s linear .5s}
 .slide.on{opacity:1;visibility:visible;transition:opacity .5s ease,transform .5s ease,visibility 0s}
 .slide.enter-push{transform:translateX(160px)}
@@ -485,7 +486,8 @@ body:not(.idle) #hint{opacity:.7}
 <script>
 (function(){
 var stage=document.getElementById('stage'),slides=[].slice.call(document.querySelectorAll('.slide')),pos=document.getElementById('pos');
-function fit(){var s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform='scale('+s+') translate(-50%,-50%)';}
+// Phones widen innerWidth to fit the 1920px stage, so measure the layout viewport instead.
+function fit(){var de=document.documentElement,s=Math.min(de.clientWidth/1920,de.clientHeight/1080);stage.style.transform='scale('+s+') translate(-50%,-50%)';}
 addEventListener('resize',fit);fit();
 // data-crop="ZOOM X% Y%": cover-fit, zoomed, positioned like object-position.
 [].forEach.call(document.querySelectorAll('img[data-crop]'),function(img){
