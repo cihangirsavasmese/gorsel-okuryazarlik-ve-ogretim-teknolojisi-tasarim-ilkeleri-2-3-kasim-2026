@@ -1,4 +1,4 @@
-# Görsel Tasarım İlkeleri (2)
+# Görsel Tasarım İlkeleri
 
 Görsel Okuryazarlık ve Öğretim Teknolojisi dersi sunumu, 3 Kasım 2026.
 Gazi Üniversitesi, Eğitim Teknolojisi Tezli Yüksek Lisans. Hazırlayan: Cihangir Savaş Meşe.
